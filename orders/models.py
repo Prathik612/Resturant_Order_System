@@ -6,7 +6,7 @@ from datetime import datetime
 class Category(models.Model):
     category_title = models.CharField(max_length=200)
     category_gif = models.ImageField(upload_to="media")
-    category_description = models.TextField() #make this the wysiwyg text field
+    category_description = models.CharField(max_length=1000) #make this the wysiwyg text field
     class Meta:
         verbose_name = "Category"
         verbose_name_plural = "Categories"
@@ -18,7 +18,7 @@ class Category(models.Model):
     def has_add_permission(self):
         return False
 
-class RegularPizza(models.Model):
+""" class RegularPizza(models.Model):
     #example row :: 1 topping , 5.00 , 7.00
     pizza_choice = models.CharField(max_length=200)
     small_price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -61,7 +61,7 @@ class Toppings(models.Model):
         #overriding the string method to get a good representation of it in string format
         return f"{self.topping_name}"
 
-
+ """
 class Sub(models.Model):
     #example row :: meatball , 5.00 , 6.50
     sub_filling = models.CharField(max_length=200)

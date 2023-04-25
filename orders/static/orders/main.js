@@ -74,7 +74,7 @@ function check_user_super() {
 function add_to_cart(info) {
     //info will be the stuff displayed in the reciept
     // item description as well as teh price
-    display_notif("add to cart", info);
+    //display_notif("add to cart", info);
     var cart_retrieved = !!localStorage.getItem("cart") ? localStorage.getItem("cart") : null
     if (cart_retrieved === null) {
         //make a new cart
@@ -102,7 +102,7 @@ function onRowClick(tableId, callback) {
     }
 }
 
-function display_notif(type, info = "No info provided") {
+/* function display_notif(type, info = "No info provided") {
     //the different types of toasts are success, warning ... info and error
     toastr.options = {
         "closeButton": true,
@@ -123,7 +123,7 @@ function display_notif(type, info = "No info provided") {
     }
     switch (type) {
         case "add to cart":
-            toastr.success(info.item_description + ': Php ' + info.price, 'Added to Cart');
+            toastr.success(info.item_description + ': Rs ' + info.price, 'Added to Cart');
             break;
         case "remove from cart":
             toastr.info("Successfully removed " + info + " from cart");
@@ -133,7 +133,7 @@ function display_notif(type, info = "No info provided") {
             break;
     }
 
-}
+} */
 
 function load_cart() {
     var table = document.getElementById('cart_body');
@@ -149,13 +149,13 @@ function load_cart() {
             var item_price = row.insertCell(2);
             item_number.innerHTML = String(i + 1);
             item_description.innerHTML = cart[i].item_description;
-            item_price.innerHTML = "Php " + parseFloat(cart[i].price).toLocaleString('en-US', { style: 'decimal', maximumFractionDigits: 2, minimumFractionDigits: 2 });
+            item_price.innerHTML = "Rs " + parseFloat(cart[i].price).toLocaleString('en-US', { style: 'decimal', maximumFractionDigits: 2, minimumFractionDigits: 2 });
 
             total += cart[i].price
         }
         total = Math.round(total * 100) / 100
         localStorage.setItem('total_price', total);
-        document.getElementById('total').innerHTML = "Php " + parseFloat(localStorage.getItem("total_price")).toLocaleString('en-US', { style: 'decimal', maximumFractionDigits: 2, minimumFractionDigits: 2 })
+        document.getElementById('total').innerHTML = "Rs " + parseFloat(localStorage.getItem("total_price")).toLocaleString('en-US', { style: 'decimal', maximumFractionDigits: 2, minimumFractionDigits: 2 })
 
 
         onRowClick("cart_body", function(row) {
@@ -167,7 +167,7 @@ function load_cart() {
                 //edit the cart
                 cart.splice(value - 1, 1) //this is how you remove elements from a list in javascript
                 localStorage.setItem('cart', JSON.stringify(cart)); //change the elements in the cart in local storage
-                display_notif("remove from cart", description)
+                //display_notif("remove from cart", description)
                 load_cart() //refresh the page
             }
         });
@@ -276,7 +276,7 @@ function checkout() {
 
         // handle a successful response
         success: function(json) {
-            display_notif("new order")
+            //display_notif("new order")
             clear_cart()
         },
 

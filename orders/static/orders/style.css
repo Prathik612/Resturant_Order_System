@@ -25,10 +25,10 @@ body {
 }
 
 body {
-    background-image: url(./../img/wp.jpg);
+    background-image: url(./../img/wp1.jpeg);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background-size: auto;
+    background-position: top right;
     backdrop-filter: brightness(0.9887);
 }
 

@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
-from .models import Category, RegularPizza, SicilianPizza, Toppings, Sub, Pasta, Salad, DinnerPlatters, UserOrder, SavedCarts
+from .models import Category, Sub, Pasta, Salad, DinnerPlatters, UserOrder, SavedCarts #, RegularPizza, SicilianPizza, Toppings
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import logout, authenticate, login
@@ -57,11 +57,11 @@ def register(request):
                   template_name = "orders/register.html",
                   context={"form":form})
 
-def pizza(request):
+""" def pizza(request):
     if request.user.is_authenticated:
         return render(request, "orders/pizza.html", context = {"regular_pizza":RegularPizza.objects.all, "sicillian_pizza":SicilianPizza.objects.all , "toppings":Toppings.objects.all, "number_of_toppings":3})
     else:
-        return redirect("orders:login")
+        return redirect("orders:login") """
 
 def pasta(request):
     if request.user.is_authenticated:
