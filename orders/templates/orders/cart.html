@@ -5,14 +5,6 @@
         <div class="card rounded-0 shadow">
             <div class="card-body">
                 <div class="row justify-content-center">
-                    <h2 id="cart_heading"></h2>
-                    <fieldset class="pb-2 mb-3 border w-100">
-                        <legend class="px-3 w-auto ml-3">Instructions:</legend>
-                        <ul>
-                            <li>Click the Item row to remove item from cart list. </li>
-                            <li>Click checkout button to place order </li>
-                        </ul>
-                    </fieldset>
                     <table class="table table-bordered table-striped" id="card-tbl">
                         <thead class="thead-light">
                             <tr>
@@ -26,11 +18,11 @@
                     </table>
 
 
-                    <h2>Total: <span class="badge badge-light border px-5 rounded-pill" id="total"></span></h2>
+                    
                 </div>
-
+                <h2>Total: <span class="badge badge-light border px-5 rounded-pill float-right" id="total"></span></h2>
                 <div class="row justify-content-center">
-                    <button id="checkout_button" type="button" class="btn btn-primary btn-block btn-lg rounded-pill" onclick="checkout()">Checkout</button>
+                    <button id="checkout_button" type="button" class="btn btn-primary float-right btn-lg rounded-pill" onclick="checkout()">Checkout</button>
                 </div>
             </div>
         </div>

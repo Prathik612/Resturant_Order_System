@@ -102,39 +102,6 @@ function onRowClick(tableId, callback) {
     }
 }
 
-/* function display_notif(type, info = "No info provided") {
-    //the different types of toasts are success, warning ... info and error
-    toastr.options = {
-        "closeButton": true,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": true,
-        "positionClass": "toast-bottom-right",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "70",
-        "hideDuration": "1000",
-        "timeOut": "2000",
-        "extendedTimeOut": "500",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    }
-    switch (type) {
-        case "add to cart":
-            toastr.success(info.item_description + ': Rs ' + info.price, 'Added to Cart');
-            break;
-        case "remove from cart":
-            toastr.info("Successfully removed " + info + " from cart");
-            break;
-        case "new order":
-            toastr.success("Order successfully placed");
-            break;
-    }
-
-} */
-
 function load_cart() {
     var table = document.getElementById('cart_body');
     table.innerHTML = ""; //clear the table
@@ -179,51 +146,6 @@ function load_cart() {
     $('#card-tbl').find('th:nth-last-child(1), td:nth-last-child(1)').addClass('text-right')
 
 }
-
-function format_toppings(topping_choices) {
-    var toppings = ""
-    var arrayLength = topping_choices.length;
-    for (var i = 0; i < arrayLength; i++) {
-        if (i == 0) {
-            //first iteration
-            toppings += topping_choices[i]
-        } else {
-            toppings += " + "
-            toppings += topping_choices[i]
-        }
-    }
-    return toppings
-}
-
-function pizza_toppings(number_of_toppings, type_of_pizza, price) {
-    var last_valid_selection = null;
-
-    $('#toppings_label')[0].innerHTML = "Choose " + String(number_of_toppings) + " topping(s) here"
-    $('#select_toppings').change(function(event) {
-        console.log($(this).val().length)
-        console.log(number_of_toppings)
-        if ($(this).val().length > number_of_toppings) {
-
-            $(this).val(last_valid_selection);
-        } else {
-            last_valid_selection = $(this).val();
-        }
-    }); //this is what restircts the user from choosing more than they are paying fpr
-
-    $('#toppings_modal').modal('show'); //show the modal
-    $("#submit_toppings").click(function() {
-        var topping_choices = $('#select_toppings').val();
-        //console.log("TOPping choices are "+topping_choices[0])
-
-        $('#toppings_modal').modal('toggle'); //hide the modal
-        var info = {
-            "item_description": type_of_pizza + " pizza with " + format_toppings(topping_choices),
-            "price": price
-        }
-        add_to_cart(info)
-
-    });
-};
 
 function close_modal() {
     $('#toppings_modal').modal('hide');
