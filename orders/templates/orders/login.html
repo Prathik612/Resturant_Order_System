@@ -10,9 +10,6 @@
                 <form method="POST">
                     {% csrf_token %} {% for field in form %}
                     <div class="form-group">
-                        <div class="control-label">
-                            {{field.label}}
-                        </div>
                         {{field}} {% if field.help_text %}
                         <small class="text-muted">{{field.help_text}}</small> {% endif %}
                     </div>
@@ -20,7 +17,7 @@
                     <div class="alert alert-danger rounded-0">{{error}}</div>
                     {% endif %}
                     <div class="text-right">
-                        <button class="btn btn-sm btn-primary rounded-0" type="submit">Login</button>
+                        <button class="btn btn-sm btn-success rounded-0" type="submit">Login</button>
                     </div>
                 </form>
             </div>
